@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/%E4%B8%8B%E8%BD%BD.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 变量名 变量名由字母和数字组成  第一个字符必须是字母  “_“被看做字母  大小写字母有区别   说明：  库中的名字常以”_“开头，因此最好不要用”_“。 传统C语言中，变量名使用小写字母，符号常量名全部使用大写字母 if, else, int等关键词不能作为变量名 局部变量一般使用较短的变量名，外部变量使用较长的变量名（便于从名字上看出其用途）  2. 类型2.1 数据类型及其长度">
+<meta name="keywords" content="c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C程序设计语言笔记2">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;06&#x2F;C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B02&#x2F;index.html">
+<meta property="og:site_name" content="Destiny">
+<meta property="og:description" content="1. 变量名 变量名由字母和数字组成  第一个字符必须是字母  “_“被看做字母  大小写字母有区别   说明：  库中的名字常以”_“开头，因此最好不要用”_“。 传统C语言中，变量名使用小写字母，符号常量名全部使用大写字母 if, else, int等关键词不能作为变量名 局部变量一般使用较短的变量名，外部变量使用较长的变量名（便于从名字上看出其用途）  2. 类型2.1 数据类型及其长度">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-06T08:35:38.646Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/06/C程序设计语言笔记2/"/>
+
+
+
+
+
+  <title>C程序设计语言笔记2 | Destiny</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Destiny</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Destiny">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C程序设计语言笔记2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-06T16:14:55+08:00">
+                2019-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">C程序设计语言笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-变量名"><a href="#1-变量名" class="headerlink" title="1. 变量名"></a>1. 变量名</h2><ul>
+<li><p>变量名由字母和数字组成</p>
+</li>
+<li><p>第一个字符必须是字母</p>
+</li>
+<li><p>“_“被看做字母</p>
+</li>
+<li><p>大小写字母有区别</p>
+</li>
+</ul>
+<p>说明：</p>
+<ol>
+<li>库中的名字常以”_“开头，因此最好不要用”_“。</li>
+<li>传统C语言中，变量名使用小写字母，符号常量名全部使用大写字母</li>
+<li>if, else, int等关键词不能作为变量名</li>
+<li>局部变量一般使用较短的变量名，外部变量使用较长的变量名（便于从名字上看出其用途）</li>
+</ol>
+<h2 id="2-类型"><a href="#2-类型" class="headerlink" title="2. 类型"></a>2. 类型</h2><h3 id="2-1-数据类型及其长度"><a href="#2-1-数据类型及其长度" class="headerlink" title="2.1 数据类型及其长度"></a>2.1 数据类型及其长度</h3><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+<th align="center">占用大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">字符型</td>
+<td align="center">8位</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">整型</td>
+<td align="center">16位，或者32位</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">单精度浮点</td>
+<td align="center">32位</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">双精度浮点</td>
+<td align="center">64位</td>
+</tr>
+</tbody></table>
+<h4 id="2-1-1-long-short限定符"><a href="#2-1-1-long-short限定符" class="headerlink" title="2.1.1 long, short限定符"></a>2.1.1 long, short限定符</h4><p>书中将long，short作为限定符，但只能限定int，因为不同机器int类型占用的空间不一样。short通常为16位，long通常为32位。</p>
+<p>c语言规定：</p>
+<ul>
+<li>short至少16位</li>
+<li>long至少32位</li>
+<li>short类型不能长于int</li>
+<li>int类型不能长于long</li>
+</ul>
+<p>一般在Windows下编程，short是16位，int是32位，long也是32位，long long是64</p>
+<h4 id="2-1-2-signed-unsigned限定符"><a href="#2-1-2-signed-unsigned限定符" class="headerlink" title="2.1.2 signed, unsigned限定符"></a>2.1.2 signed, unsigned限定符</h4><ul>
+<li>这两个用于限定整型和char类型</li>
+<li>signed修饰的char是-128~127,</li>
+<li>unsigned修饰的char是0~255</li>
+<li>不带修饰的char取决于机器</li>
+</ul>
+<h4 id="2-1-3-其他"><a href="#2-1-3-其他" class="headerlink" title="2.1.3 其他"></a>2.1.3 其他</h4><ol>
+<li>一般float 32位，double 64位，long double 128位，但也可能三个占用长度一样（取决于机器）</li>
+<li>这些类型长度的定义，在<code>&lt;limit.h&gt;</code>和<code>&lt;float.h&gt;</code>中有说明，这里就不展开了。</li>
+<li><font color = red>c语言中是没有bool类型的，只有c++才有。但是，c有long long和_Bool</font>（我测试GCC  -std=c98也可以编译成功？）</li>
+</ol>
+<h3 id="2-2-常量"><a href="#2-2-常量" class="headerlink" title="2.2 常量"></a>2.2 常量</h3><ol>
+<li>long  常以字母L（大小写皆可）结尾。</li>
+<li>unsigned long以ul结尾，unsigned long long以ull结尾</li>
+<li>以0开头的数字，表示8进制（0是数字不是字母）</li>
+<li>以0x/0X开头的数字，表示16进制（同上）</li>
+</ol>
+<p><strong>常量表达式</strong>：只包含常量的表达式，在编译时求值，不在运行时求值</p>
+<p><strong>字符常量</strong>：本质是整型，每个字符对应其ASCII码</p>
+<ul>
+<li>空字符：’\0’，特殊字符，值为0，表示NULL</li>
+</ul>
+<p><strong>转义字符</strong>：看起来像多个字符，实际上只是一个</p>
+<ul>
+<li>‘\000’：000表示1~3位八进制数</li>
+<li>‘\xhh’：hh表示两位十六进制数</li>
+</ul>
+<p><strong>字符串常量</strong>：也叫字符串字面值</p>
+<ul>
+<li><code>char s[] = &quot;hello, &quot; &quot;world&quot;;</code>这样可将多个字符串连接起来</li>
+<li><code>strlen(char s[])</code>返回字符串长度，但是不包括’\0’</li>
+</ul>
+<p><strong>枚举</strong>：枚举是一种特殊数据类型，放在这里说是因为其和常量值联系紧密</p>
+<ul>
+<li>定义：<code>emnu boolean{NO, YES};</code></li>
+<li>没有显示说明，emnu类型第一个值为0，第二个为1，以此类推。</li>
+<li>如果指定了部分值，那么未指定的值为前一个的值+1</li>
+<li>同一类型中的枚举名字必须不同</li>
+<li>同一类型中不同名字的枚举值可以相同</li>
+</ul>
+<h3 id="2-3-声明"><a href="#2-3-声明" class="headerlink" title="2.3 声明"></a>2.3 声明</h3><p><strong>声明</strong>：变量类型+变量名，说明变量的类型和名字</p>
+<p><strong>初始化</strong>：变量名 = 值，将变量赋初值</p>
+<ul>
+<li><p>任何变量都可以用const修饰，表示其值无法再被改变</p>
+</li>
+<li><p>const也可配合数组参数使用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">strlen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> a[])</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//在函数中无法改变字符串a的值</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    function body</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-4-类型转换"><a href="#2-4-类型转换" class="headerlink" title="2.4 类型转换"></a>2.4 类型转换</h3><p>这个以后再说</p>
+<h2 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3. 运算符"></a>3. 运算符</h2><p>注意不同运算符之间的优先级关系。</p>
+<h3 id="3-1-算数运算符"><a href="#3-1-算数运算符" class="headerlink" title="3.1 算数运算符"></a>3.1 算数运算符</h3><ul>
+<li>取模”%”不能用于浮点型</li>
+<li>整数取模取决于机器</li>
+<li>负数取模可以单独写一篇博客了</li>
+</ul>
+<h3 id="3-2-关系运算符与逻辑运算符"><a href="#3-2-关系运算符与逻辑运算符" class="headerlink" title="3.2 关系运算符与逻辑运算符"></a>3.2 关系运算符与逻辑运算符</h3><p>|| 和 &amp;&amp; 逻辑判断的特殊用途</p>
+<ul>
+<li>a || b：若a为真，则b不进行计算</li>
+<li>a &amp;&amp; b：若a为假，则b不进行计算</li>
+</ul>
+<p>下面看个例子</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lim - <span class="number">1</span> &amp;&amp; (c = getchar()) != <span class="string">'\n'</span> &amp;&amp; c != EOF; i++)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    s[i] = c;</span></pre></td></tr></table></figure>
+
+<p>for循环中的判断表达式一共有三个部分</p>
+<ul>
+<li><code>i &lt; lim - 1</code></li>
+<li><code>(c = getchar()) != &#39;\n&#39;</code></li>
+<li><code>c != EOF</code></li>
+</ul>
+<p>这三个部分由两个&amp;&amp;连接，编译器会从左往右计算每个表达式的值，如果遇到某一个值为假，则后面的语句就不会运行。例如<code>i = 4, lim = 5</code>时：</p>
+<p><code>i &lt; lim - 1</code> 就是 <code>4 &lt; 5 - 1</code>为假，则<code>(c = getchar()) != &#39;\n&#39;</code>也不会运行。</p>
+<p>意思是已经读取到了限制范围的最大值了，那么就不应该继续往下读。</p>
+<h3 id="3-3-运算符优先级与求值次序"><a href="#3-3-运算符优先级与求值次序" class="headerlink" title="3.3 运算符优先级与求值次序"></a>3.3 运算符优先级与求值次序</h3><table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">运算符</th>
+<th align="center">结合性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">后缀</td>
+<td align="center">() [] -&gt; . ++ –</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">一元</td>
+<td align="center">+ - ! ~ ++ --  (type) * &amp; sizeof</td>
+<td align="center">右-&gt;左</td>
+</tr>
+<tr>
+<td align="center">乘除</td>
+<td align="center">* / %</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">加减</td>
+<td align="center">+ -</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">移位</td>
+<td align="center">&lt;&lt; &gt;&gt;</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">关系</td>
+<td align="center">&lt; &lt;= &gt; &gt;=</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">相等</td>
+<td align="center">== !=</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">位与 AND</td>
+<td align="center">&amp;</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">位异或 XOR</td>
+<td align="center">^</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">位或 OR</td>
+<td align="center">|</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">逻辑与 AND</td>
+<td align="center">&amp;&amp;</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">逻辑或 OR</td>
+<td align="center">||</td>
+<td align="center">左-&gt;右</td>
+</tr>
+<tr>
+<td align="center">条件</td>
+<td align="center">? :</td>
+<td align="center">右-&gt;左</td>
+</tr>
+<tr>
+<td align="center">赋值</td>
+<td align="center">= += -= *= /= %= &gt;&gt;= &lt;&lt;= &amp;= ^= |=</td>
+<td align="center">右-&gt;左</td>
+</tr>
+<tr>
+<td align="center">逗号</td>
+<td align="center">，</td>
+<td align="center">左-&gt;右</td>
+</tr>
+</tbody></table>
+<p>大致记忆：</p>
+<ul>
+<li>括号，指针 &gt; 一元运算符（正负号，自加减）&gt; 四则运算 &gt; 移位 &gt; 位运算 &gt; 逻辑运算 &gt; 赋值运算</li>
+<li>在指针和一元运算符一起使用时要格外注意</li>
+<li>在位运算和其他运算一起使用时要格外注意</li>
+</ul>
+<p><code>if ((x &amp; MASK) == 0)```不同于```if (x &amp; MASK == 0)```，后者等价于```if(x &amp; (MASK == 0))</code></p>
+<p>因为在不同编译器环境下表达式求值会不同（特别是使用自加自减运算符时），建议多使用”()”。避免招致不必要的bug。</p>
+<p>求值顺序：</p>
+<ul>
+<li>同一运算符每个操作数求值顺序不定</li>
+<li>函数各个参数求值顺序不定</li>
+</ul>
+<h3 id="3-4-自增运算符和自减运算符"><a href="#3-4-自增运算符和自减运算符" class="headerlink" title="3.4 自增运算符和自减运算符"></a>3.4 自增运算符和自减运算符</h3><ul>
+<li><p>前置自增/减：先增/减后，再使用值</p>
+</li>
+<li><p>后置自增/减：先使用值后，再自增/减</p>
+</li>
+<li><p>自增自减运算符只能作用于变量，无法作用于表达式</p>
+</li>
+</ul>
+<p>表达式<code>a[i] = i++;</code>a[i]引用新值还是旧值？</p>
+<h3 id="3-5-按位运算符"><a href="#3-5-按位运算符" class="headerlink" title="3.5 按位运算符"></a>3.5 按位运算符</h3><p>位运算符只能作用于整型操作数：char, short, int, long。有符号或者无符号皆可。</p>
+<p>位运算非常巧妙，能实现很多意想不到的功能。需要在平时的编程中多积累，多思考。</p>
+<h3 id="3-6-赋值运算符与表达式"><a href="#3-6-赋值运算符与表达式" class="headerlink" title="3.6 赋值运算符与表达式"></a>3.6 赋值运算符与表达式</h3><p>这个以后再说</p>
+
+      
+    </div>
+    
+    
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c/" rel="tag"># c</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/05/Windows%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gcc%E7%BC%96%E8%AF%91c%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81/" rel="next" title="Windows下如何使用gcc编译c语言代码">
+                <i class="fa fa-chevron-left"></i> Windows下如何使用gcc编译c语言代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Destiny</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-变量名"><span class="nav-number">1.</span> <span class="nav-text">1. 变量名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-类型"><span class="nav-number">2.</span> <span class="nav-text">2. 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数据类型及其长度"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数据类型及其长度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-long-short限定符"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1 long, short限定符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-signed-unsigned限定符"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2 signed, unsigned限定符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-其他"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3 其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-常量"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-声明"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-类型转换"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-运算符"><span class="nav-number">3.</span> <span class="nav-text">3. 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-算数运算符"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-关系运算符与逻辑运算符"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 关系运算符与逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-运算符优先级与求值次序"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 运算符优先级与求值次序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-自增运算符和自减运算符"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 自增运算符和自减运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-按位运算符"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 按位运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-赋值运算符与表达式"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 赋值运算符与表达式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
