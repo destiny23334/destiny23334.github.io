@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Destiny">
 <meta property="og:description" content="1. 变量名 变量名由字母和数字组成  第一个字符必须是字母  “_“被看做字母  大小写字母有区别   说明：  库中的名字常以”_“开头，因此最好不要用”_“。 传统C语言中，变量名使用小写字母，符号常量名全部使用大写字母 if, else, int等关键词不能作为变量名 局部变量一般使用较短的变量名，外部变量使用较长的变量名（便于从名字上看出其用途）  2. 类型2.1 数据类型及其长度">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T08:35:38.646Z">
+<meta property="og:updated_time" content="2019-12-06T09:33:18.152Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -569,7 +569,7 @@
 <li>在指针和一元运算符一起使用时要格外注意</li>
 <li>在位运算和其他运算一起使用时要格外注意</li>
 </ul>
-<p><code>if ((x &amp; MASK) == 0)```不同于```if (x &amp; MASK == 0)```，后者等价于```if(x &amp; (MASK == 0))</code></p>
+<p><code>if ((x &amp; MASK) == 0)</code>不同于<code>if (x &amp; MASK == 0)</code>，后者等价于<code>if(x &amp; (MASK == 0))</code></p>
 <p>因为在不同编译器环境下表达式求值会不同（特别是使用自加自减运算符时），建议多使用”()”。避免招致不必要的bug。</p>
 <p>求值顺序：</p>
 <ul>
