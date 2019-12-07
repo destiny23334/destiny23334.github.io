@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Destiny">
 <meta property="og:description" content="备份原来的源（这一步感觉可以省了，从来没恢复过这样子） 1sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources_init.list  更换源 1sudo gedit &#x2F;etc&#x2F;apt&#x2F;sources.list  将下面常用源替换原内容即可    常用源 阿里源 1deb http:&amp;#x2F;&amp;#x2F;mirrors.aliyun.com&amp;#x2F;ub">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-07T02:21:53.373Z">
+<meta property="og:updated_time" content="2019-12-07T02:27:24.120Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -346,9 +346,20 @@
 <p>清华源</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial main restricted universe multiverse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial main restricted universe multiverse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial-updates main restricted universe multiverse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial-updates main restricted universe multiverse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial-backports main restricted universe multiverse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial-backports main restricted universe multiverse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial-security main restricted universe multiverse</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; xenial-security main restricted universe multiverse</span></pre></td></tr></table></figure>
 
+<p>有时候阿里源好用，有时候清华源好用。如果网络正常，可以考虑切换着用，或者再换其他源。</p>
+</li>
+<li><p>更新软件</p>
+<p>更新源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span></pre></td></tr></table></figure>
+
+<p>复损坏的软件包，尝试卸载出错的包，重新安装正确版本的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo apt-get -f install</span></pre></td></tr></table></figure>
+
+<p>更新软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<p>有时候阿里源好用，有时候清华源好用。如果网络正常，可以考虑切换着用，或者再换其他源。</p>
 
       
     </div>
