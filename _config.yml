@@ -28,12 +28,12 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-twitter:
-  username: vszhub
-  card: summary
+#twitter:
+#  username: vszhub
+#  card: summary
 logo: logo.png
 social:
-  name: Songzi Vong
+  name: destiny
   links:
     - https://github.com/destiny23334
 google_site_verification: xxxxx
@@ -53,6 +53,6 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Zhu Kang
+  name: destiny
   url: https://github.com/destiny23334/
   email: zhukng@163.com
