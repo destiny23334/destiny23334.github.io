@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classic 预览 · 博客园风格</title>
+<style>
+  :root{
+    --bg:#ffffff; --page:#f7f8fa; --ink:#222831; --body:#4a515c; --muted:#8a919c;
+    --line:#eceef2; --accent:#1f6feb; --tagbg:#eef4ff; --tagink:#1f6feb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .topbar{background:#fff;border-bottom:1px solid var(--line)}
+  .topbar .inner{max-width:1080px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:28px}
+  .logo{font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+  .logo b{color:var(--accent)}
+  .topnav{display:flex;gap:22px;font-size:14px;color:var(--body)}
+  .topnav a:hover{color:var(--accent)}
+  .search{margin-left:auto;display:flex;align-items:center;gap:8px;background:#f2f4f8;border-radius:6px;padding:6px 12px;font-size:13px;color:var(--muted);min-width:180px}
+  .accentline{height:3px;background:linear-gradient(90deg,var(--accent),#63a4ff 60%,transparent)}
+  .layout{max-width:1080px;margin:0 auto;padding:26px 24px 60px;display:grid;grid-template-columns:1fr 296px;gap:26px;align-items:start}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 26px}
+  .panel-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.06em;margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+  .post{padding:20px 0;border-bottom:1px dashed var(--line)}
+  .post:last-child{border-bottom:0;padding-bottom:4px}
+  .post h2{margin:0 0 6px;font-size:18.5px;font-weight:600;line-height:1.5}
+  .post h2 a{color:var(--accent);transition:opacity .18s}
+  .post h2 a:hover{opacity:.7}
+  .post .meta{font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+  .post .meta em{font-style:normal;color:var(--tagink);background:var(--tagbg);border-radius:3px;padding:0 6px;font-size:12px}
+  .post p{margin:0 0 8px;font-size:14px;color:var(--body);line-height:1.75}
+  .post .foot{text-align:right;font-size:12.5px;color:var(--muted)}
+  .post .foot a{color:var(--accent);margin-left:14px}
+  .side{position:sticky;top:20px;display:flex;flex-direction:column;gap:16px}
+  .side .panel{padding:18px 20px}
+  .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1f6feb,#63a4ff);color:#fff;display:grid;place-items:center;font-size:22px;font-weight:700;margin-bottom:10px}
+  .who h3{margin:0 0 4px;font-size:15px}
+  .who p{margin:0;font-size:13px;color:var(--muted);line-height:1.7}
+  .stats{display:flex;gap:16px;margin-top:12px;font-size:12.5px;color:var(--muted)}
+  .stats b{color:var(--ink)}
+  .cloud{display:flex;flex-wrap:wrap;gap:7px}
+  .cloud a{font-size:12.5px;background:#f3f5f9;border-radius:4px;padding:3px 9px;color:var(--body);transition:all .18s}
+  .cloud a:hover{background:var(--tagbg);color:var(--tagink)}
+  .minilist{list-style:none;margin:0;padding:0;font-size:13.5px}
+  .minilist li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;color:var(--body)}
+  .minilist li:last-child{border-bottom:0}
+  .minilist a:hover{color:var(--accent)}
+  .minilist span{color:var(--muted);font-size:12px;white-space:nowrap}
+  .sample{margin-top:26px}
+  .article h1{font-size:26px;line-height:1.45;margin:4px 0 10px;letter-spacing:-.01em}
+  .article .meta{font-size:12.5px;color:var(--muted);margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .prose{font-size:15.5px;line-height:1.95;color:#3c434e}
+  .prose p{margin:0 0 1.2em}
+  .prose h2{font-size:19px;margin:1.9em 0 .6em;padding-left:10px;border-left:3px solid var(--accent)}
+  .prose code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:#f2f4f8;border-radius:4px;padding:2px 5px}
+  .prose pre{background:#f7f8fa;border:1px solid var(--line);border-radius:6px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.7}
+  .prose pre code{background:none;padding:0}
+  .prose a{color:var(--accent)}
+  .prose blockquote{margin:1.6em 0;padding:10px 16px;background:#f7f9fc;border-left:3px solid #9dc0ff;color:var(--body);font-size:14.5px}
+  footer{max-width:1080px;margin:0 auto;padding:18px 24px 40px;font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;gap:18px}
+    .side{position:static}
+    .topnav{display:none}
+  }
+  @media (max-width:560px){
+    .search{display:none}
+    .panel{padding:18px}
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="inner">
+    <a class="logo" href="#">Destiny<b>23334</b></a>
+    <nav class="topnav"><a href="#">首页</a><a href="#">随笔</a><a href="#">标签</a><a href="#">归档</a><a href="#">关于</a></nav>
+    <div class="search">搜索文章…</div>
+  </div>
+</div>
+<div class="accentline"></div>
+
+<div class="layout">
+  <main class="panel">
+    <div class="panel-title"><span>最新随笔</span><span>共 3 篇</span></div>
+
+    <article class="post">
+      <h2><a href="#">用 GitHub Pages 免费托管自己的站点</a></h2>
+      <div class="meta"><span>2026-11-20</span><em>技术</em><em>GitHub</em><span>阅读 128</span><span>评论 3</span></div>
+      <p>从零开始把一个静态站点挂到 GitHub Pages 上：仓库命名、分支选择、自定义域名，以及几个容易踩的小坑……</p>
+      <div class="foot"><a href="#">阅读全文 »</a></div>
+    </article>
+
+    <article class="post">
+      <h2><a href="#">Flexbox 与 Grid，什么时候用哪个</a></h2>
+      <div class="meta"><span>2026-11-12</span><em>前端</em><em>CSS</em><span>阅读 96</span><span>评论 1</span></div>
+      <p>两套布局方案并不是替代关系。用一维排布和二维网格的直觉去选，比记住一堆属性更有用……</p>
+      <div class="foot"><a href="#">阅读全文 »</a></div>
+    </article>
+
+    <article class="post">
+      <h2><a href="#">最近读完的几本书</a></h2>
+      <div class="meta"><span>2026-10-28</span><em>生活</em><em>阅读</em><span>阅读 74</span><span>评论 5</span></div>
+      <p>一个不追求数量的阅读记录：三本值得反复翻的书，以及它们各自改变了我哪一点做事方式……</p>
+      <div class="foot"><a href="#">阅读全文 »</a></div>
+    </article>
+
+    <div class="sample">
+      <div class="panel-title"><span>正文样式示例</span><span>Article</span></div>
+      <div class="article">
+        <h1>用 GitHub Pages 免费托管自己的站点</h1>
+        <div class="meta">2026-11-20 22:10 · 分类：技术 · 阅读 128</div>
+        <div class="prose">
+          <p>GitHub Pages 是 GitHub 自带的静态站点托管服务。把一个仓库推上去，它就会把里面的 HTML 当成网站对外提供访问——免费、支持 HTTPS，也不需要服务器。</p>
+          <h2>两种仓库，两种地址</h2>
+          <p>用户站点要求仓库名是 <code>用户名.github.io</code>，访问裸域名；其他仓库名则是项目站点，地址后面会多一段路径。</p>
+          <blockquote>静态托管意味着没有服务端逻辑。需要接口、表单提交、评论时，接第三方服务或者换个部署方式。</blockquote>
+          <pre><code>git init
+git add .
+git commit -m "init blog"
+git push -u origin main</code></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="side">
+    <div class="panel who">
+      <div class="avatar">D</div>
+      <h3>Destiny23334</h3>
+      <p>前端工程师 · 写技术笔记，也写点生活</p>
+      <div class="stats"><span>随笔 <b>3</b></span><span>标签 <b>6</b></span><span>评论 <b>9</b></span></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title"><span>我的标签</span></div>
+      <div class="cloud"><a href="#">技术 3</a><a href="#">GitHub 2</a><a href="#">前端 1</a><a href="#">CSS 1</a><a href="#">阅读 1</a><a href="#">生活 1</a></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title"><span>随笔档案</span></div>
+      <ul class="minilist">
+        <li><a href="#">2026年11月</a><span>2</span></li>
+        <li><a href="#">2026年10月</a><span>1</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="panel-title"><span>最新评论</span></div>
+      <ul class="minilist">
+        <li><a href="#">写得很清楚，收藏了</a><span>访客</span></li>
+        <li><a href="#">请问域名这一步怎么配</a><span>小明</span></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>© 2026 Destiny23334 · Classic 预览</span>
+  <span>Powered by GitHub Pages</span>
+</footer>
+</body>
+</html>

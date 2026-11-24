@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clean 预览 · 单栏阅读</title>
+<style>
+  :root{
+    --bg:#fff;--ink:#1a1d21;--body:#4b5158;--muted:#8b9096;--line:#ebedef;--accent:#2563eb;--soft:#f6f7f9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:712px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--line)}
+  header .wrap{height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .brand i{color:var(--accent);font-style:normal}
+  nav{display:flex;gap:20px;font-size:14px;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
+  .hero{padding:64px 0 44px;border-bottom:1px solid var(--line)}
+  .hero .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  .hero h1{margin:0 0 14px;font-size:34px;line-height:1.35;letter-spacing:-.025em;font-weight:650}
+  .hero p{margin:0;color:var(--body);font-size:16px;max-width:32em}
+  .hero .links{display:flex;gap:18px;margin-top:22px;font-size:14px;color:var(--accent)}
+  .filters{display:flex;flex-wrap:wrap;gap:6px;padding:22px 0 6px}
+  .filters button{font:inherit;font-size:12.5px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:4px;padding:4px 10px;cursor:pointer;transition:all .18s}
+  .filters button:hover{color:var(--ink);border-color:#c9ccd1}
+  .filters button.active{background:var(--ink);border-color:var(--ink);color:#fff}
+  .row{display:block;padding:26px 0;border-bottom:1px solid var(--line)}
+  .row h2{margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.5;transition:color .18s}
+  .row:hover h2{color:var(--accent)}
+  .row .meta{font-size:12.5px;color:var(--muted);margin-bottom:8px;display:flex;gap:12px;flex-wrap:wrap}
+  .row .meta em{font-style:normal;color:var(--accent)}
+  .row p{margin:0;font-size:14.5px;color:var(--body);line-height:1.75;max-width:40em}
+  .article{padding:52px 0 0}
+  .article .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .article h1{font-size:30px;line-height:1.4;letter-spacing:-.02em;margin:0 0 12px;font-weight:650}
+  .article .meta{font-size:12.5px;color:var(--muted);padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:28px}
+  .prose{font-size:16.5px;line-height:1.9;color:#333a41}
+  .prose p{margin:0 0 1.3em}
+  .prose h2{font-size:20px;margin:2em 0 .6em;letter-spacing:-.01em}
+  .prose a{color:var(--accent);border-bottom:1px solid rgba(37,99,235,.3)}
+  .prose code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:var(--soft);border-radius:4px;padding:2px 5px}
+  .prose pre{background:var(--soft);border-radius:8px;padding:18px;overflow-x:auto;font-size:13px;line-height:1.7}
+  .prose pre code{background:none;padding:0}
+  .prose blockquote{margin:1.7em 0;padding-left:16px;border-left:2px solid #cbd5e1;color:var(--body)}
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:24px 0 44px;font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">Destiny<i>23334</i></a>
+    <nav><a href="#">文章</a><a href="#">关于</a><a href="https://github.com/destiny23334">GitHub</a></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <p class="eyebrow">Blog</p>
+    <h1>写下值得回头看的东西。</h1>
+    <p>技术实践、阅读记录，以及一些没想明白但愿意写下来的念头。不追更新频率，只求每篇都站得住。</p>
+    <div class="links"><a href="#posts">全部文章 →</a><a href="#">关于我</a></div>
+  </section>
+
+  <div class="filters" id="filters"></div>
+  <div id="posts">
+    <a class="row" href="#" data-tags="技术 GitHub">
+      <h2>用 GitHub Pages 免费托管自己的站点</h2>
+      <div class="meta"><span>2026.11.20</span><em>技术</em><em>GitHub</em><span>8 分钟</span></div>
+      <p>仓库命名、分支选择、自定义域名，以及几个容易踩的小坑。</p>
+    </a>
+    <a class="row" href="#" data-tags="前端 CSS">
+      <h2>Flexbox 与 Grid，什么时候用哪个</h2>
+      <div class="meta"><span>2026.11.12</span><em>前端</em><em>CSS</em><span>6 分钟</span></div>
+      <p>用一维排布和二维网格的直觉去选，比记住一堆属性更有用。</p>
+    </a>
+    <a class="row" href="#" data-tags="生活 阅读">
+      <h2>最近读完的几本书</h2>
+      <div class="meta"><span>2026.10.28</span><em>生活</em><em>阅读</em><span>5 分钟</span></div>
+      <p>三本值得反复翻的书，以及它们各自改变了我哪一点做事方式。</p>
+    </a>
+  </div>
+
+  <article class="article">
+    <div class="kicker">正文样式示例</div>
+    <h1>用 GitHub Pages 免费托管自己的站点</h1>
+    <div class="meta">2026 年 11 月 20 日 · 技术 · 阅读 128</div>
+    <div class="prose">
+      <p>GitHub Pages 是 GitHub 自带的静态站点托管服务。把一个仓库推上去，它就会把里面的 HTML 当成网站对外提供访问——免费、支持 HTTPS，也不需要服务器。</p>
+      <h2>两种仓库，两种地址</h2>
+      <p>用户站点要求仓库名是 <code>用户名.github.io</code>，访问裸域名；其他仓库名则是项目站点，地址后面多一段路径。</p>
+      <blockquote>静态托管意味着没有服务端逻辑。需要接口、表单提交、评论时，接第三方服务或者换个部署方式。</blockquote>
+      <pre><code>git init
+git add .
+git commit -m "init blog"
+git push -u origin main</code></pre>
+    </div>
+  </article>
+
+  <footer><span>© 2026 Destiny23334</span><span>Clean 预览</span></footer>
+</div>
+
+<script>
+  (function(){
+    var rows=[].slice.call(document.querySelectorAll('.row'));
+    var tags=['全部'];rows.forEach(function(r){r.dataset.tags.split(' ').forEach(function(t){if(tags.indexOf(t)<0)tags.push(t)})});
+    var box=document.getElementById('filters');
+    tags.forEach(function(t){
+      var b=document.createElement('button');b.textContent=t;if(t==='全部')b.className='active';
+      b.onclick=function(){
+        [].forEach.call(box.children,function(x){x.className=x.textContent===t?'active':''});
+        rows.forEach(function(r){r.style.display=(t==='全部'||r.dataset.tags.indexOf(t)>-1)?'block':'none'});
+      };
+      box.appendChild(b);
+    });
+  })();
+</script>
+</body>
+</html>
