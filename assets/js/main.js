@@ -17,8 +17,7 @@
   });
 
   function formatDate(value) {
-    var parts = value.split("-");
-    return parts[0] + "." + parts[1] + "." + parts[2];
+    return value.split("-").join(".");
   }
 
   function renderFilters() {
@@ -45,7 +44,7 @@
     if (countEl) countEl.textContent = visible.length + " 篇";
 
     if (!visible.length) {
-      listEl.innerHTML = '<li class="empty">这个标签下还没有文章。</li>';
+      listEl.innerHTML = '<p class="empty">这个标签下还没有文章。</p>';
       return;
     }
 
@@ -53,22 +52,22 @@
       .map(function (post) {
         var tagsHtml = (post.tags || [])
           .map(function (tag) {
-            return '<span class="tag">' + tag + "</span>";
+            return "<span>#" + tag + "</span>";
           })
           .join("");
         return (
-          '<li><a class="post-item" href="' +
+          '<a class="card" href="' +
           post.url +
           '">' +
-          '<div class="row"><h3>' +
+          '<div class="top"><h3>' +
           post.title +
           "</h3><time>" +
           formatDate(post.date) +
           "</time></div>" +
-          (post.summary ? '<p class="summary">' + post.summary + "</p>" : "") +
+          (post.summary ? "<p>" + post.summary + "</p>" : "") +
           '<div class="tags">' +
           tagsHtml +
-          "</div></a></li>"
+          "</div></a>"
         );
       })
       .join("");

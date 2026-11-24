@@ -4,13 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>用 GitHub Pages 免费托管自己的站点 · Destiny23334</title>
+    <meta name="theme-color" content="#0a192f" />
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body>
-    <header class="site-header">
+    <div class="rail">
+      <a href="https://github.com/destiny23334" target="_blank" rel="noopener" title="GitHub">GH</a>
+      <a href="../" title="首页">HM</a>
+      <a href="#" title="顶部">↑</a>
+    </div>
+
+    <header class="site">
       <div class="wrap">
-        <a class="brand" href="../">Destiny23334</a>
-        <nav class="nav">
+        <a class="mark" href="../" aria-label="首页">D</a>
+        <nav class="main">
           <a href="../">首页</a>
           <a href="../about.html">关于</a>
         </nav>
@@ -18,19 +25,21 @@
     </header>
 
     <main class="wrap">
-      <article class="article">
+      <article>
         <div class="article-head">
+          <a class="crumb" href="../">← 文章列表</a>
           <h1>用 GitHub Pages 免费托管自己的站点</h1>
-          <div class="article-meta">
-            <time>2026.11.20</time>
-            <span class="tag">技术</span>
-            <span class="tag">GitHub</span>
+          <div class="meta">
+            <span class="first">2026.11.20</span>
+            <span>技术</span>
+            <span>GitHub</span>
+            <span>8 min read</span>
           </div>
         </div>
 
         <div class="prose">
           <p>
-            GitHub Pages 是 GitHub 自带的静态站点托管服务：把一个仓库推上去，它就会把里面的 HTML 当成网站对外提供访问，免费、支持 HTTPS，也不需要服务器。
+            GitHub Pages 是 GitHub 自带的静态站点托管服务。把一个仓库推上去，它就会把里面的 HTML 当成网站对外提供访问——免费、支持 HTTPS，也不需要服务器。
           </p>
 
           <h2>两种仓库，两种地址</h2>
@@ -90,15 +99,11 @@
           </blockquote>
         </div>
 
-        <a class="back-link" href="../">← 返回首页</a>
+        <div class="article-foot">
+          <span>#技术 #GitHub</span>
+          <a href="../">← 返回文章列表</a>
+        </div>
       </article>
     </main>
-
-    <footer class="site-footer">
-      <div class="wrap">
-        <span>© 2026 Destiny23334</span>
-        <span>Powered by GitHub Pages</span>
-      </div>
-    </footer>
   </body>
 </html>

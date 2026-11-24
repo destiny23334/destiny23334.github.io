@@ -4,13 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Flexbox 与 Grid，什么时候用哪个 · Destiny23334</title>
+    <meta name="theme-color" content="#0a192f" />
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body>
-    <header class="site-header">
+    <div class="rail">
+      <a href="https://github.com/destiny23334" target="_blank" rel="noopener" title="GitHub">GH</a>
+      <a href="../" title="首页">HM</a>
+      <a href="#" title="顶部">↑</a>
+    </div>
+
+    <header class="site">
       <div class="wrap">
-        <a class="brand" href="../">Destiny23334</a>
-        <nav class="nav">
+        <a class="mark" href="../" aria-label="首页">D</a>
+        <nav class="main">
           <a href="../">首页</a>
           <a href="../about.html">关于</a>
         </nav>
@@ -18,13 +25,15 @@
     </header>
 
     <main class="wrap">
-      <article class="article">
+      <article>
         <div class="article-head">
+          <a class="crumb" href="../">← 文章列表</a>
           <h1>Flexbox 与 Grid，什么时候用哪个</h1>
-          <div class="article-meta">
-            <time>2026.11.12</time>
-            <span class="tag">前端</span>
-            <span class="tag">CSS</span>
+          <div class="meta">
+            <span class="first">2026.11.12</span>
+            <span>前端</span>
+            <span>CSS</span>
+            <span>6 min read</span>
           </div>
         </div>
 
@@ -78,15 +87,11 @@
           </blockquote>
         </div>
 
-        <a class="back-link" href="../">← 返回首页</a>
+        <div class="article-foot">
+          <span>#前端 #CSS</span>
+          <a href="../">← 返回文章列表</a>
+        </div>
       </article>
     </main>
-
-    <footer class="site-footer">
-      <div class="wrap">
-        <span>© 2026 Destiny23334</span>
-        <span>Powered by GitHub Pages</span>
-      </div>
-    </footer>
   </body>
 </html>
