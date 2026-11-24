@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swiss 预览 · Destiny23334</title>
+<style>
+  :root{
+    --bg:#ffffff; --ink:#0a0a0b; --muted:#6b6b72; --faint:#a2a2aa;
+    --line:#e8e8ec; --accent:#2b50ff; --soft:#f4f5f8;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0b0b0d;--ink:#f2f2f4;--muted:#9a9aa3;--faint:#5f5f68;--line:#1e1e23;--accent:#7c8cff;--soft:#141418}
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11"}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  header .wrap{height:64px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;letter-spacing:-.01em}
+  .logo i{width:18px;height:18px;border:1.5px solid var(--ink);border-radius:50%;display:inline-block;position:relative}
+  .logo i::after{content:"";position:absolute;inset:5px;background:var(--accent);border-radius:50%}
+  nav{display:flex;gap:26px}
+  nav a{font-size:13px;color:var(--muted);transition:color .18s}
+  nav a:hover{color:var(--ink)}
+  nav a.on{color:var(--ink)}
+  .hero{padding:96px 0 64px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1fr 268px;gap:56px;align-items:end}
+  h1{font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.045em;font-weight:600;margin:0}
+  h1 .thin{font-weight:300;color:var(--muted)}
+  .hero p{font-size:16px;color:var(--muted);max-width:32em;margin:26px 0 0;letter-spacing:-.005em}
+  .hero-meta{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  .hero-meta div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+  .hero-meta span:first-child{color:var(--faint);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .filters{display:flex;flex-wrap:wrap;gap:6px}
+  .filters button{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--line);color:var(--muted);border-radius:4px;padding:5px 10px;cursor:pointer;transition:all .18s}
+  .filters button:hover{border-color:var(--ink);color:var(--ink)}
+  .filters button.active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .row{display:grid;grid-template-columns:44px 92px 1fr 220px 32px;gap:20px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);transition:background .2s}
+  .row:hover{background:var(--soft)}
+  .row .n{font-family:var(--mono);font-size:11px;color:var(--faint)}
+  .row .y{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+  .row h2{margin:0;font-size:19.5px;font-weight:500;letter-spacing:-.02em;line-height:1.45}
+  .row:hover h2{color:var(--accent)}
+  .row .d{margin:6px 0 0;font-size:13.5px;color:var(--muted);line-height:1.65;max-width:44em}
+  .row .tg{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+  .row .tg span{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:2px 7px;border-radius:3px}
+  .row .arw{font-size:16px;color:var(--faint);transition:transform .2s,color .2s}
+  .row:hover .arw{transform:translateX(4px);color:var(--accent)}
+  .sample{padding:88px 0 0}
+  .sample .head{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ink);padding-top:14px;margin-bottom:48px}
+  .article{max-width:680px}
+  .article h1{font-size:42px;letter-spacing:-.035em;line-height:1.15;font-weight:600;margin:0 0 18px}
+  .article .meta{display:flex;gap:14px;margin-bottom:40px}
+  .article .meta span{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.05em}
+  .prose{font-size:17px;line-height:1.85;color:var(--ink)}
+  .prose p{margin:0 0 1.4em}
+  .prose h2{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:2.2em 0 .7em}
+  .prose code{font-family:var(--mono);font-size:.85em;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+  .prose pre{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:18px 20px;overflow-x:auto;font-size:13px;line-height:1.7;margin:0 0 1.5em}
+  .prose pre code{background:none;border:0;padding:0}
+  .prose blockquote{margin:1.8em 0;padding-left:18px;border-left:2px solid var(--accent);color:var(--muted)}
+  .prose a{color:var(--accent);border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+  footer{margin-top:88px;border-top:1px solid var(--line);padding:26px 0 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  @media (max-width:620px){
+    .wrap{padding:0 20px}
+    .logo{font-size:13px;gap:8px}
+    nav{gap:12px}
+    nav a{font-size:12px}
+    .hero{padding:64px 0 44px}
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .row{grid-template-columns:1fr;gap:6px;padding:22px 0}
+    .row .n,.row .y{display:none}
+    .row .tg{justify-content:flex-start}
+    .row .arw{display:none}
+    .article h1{font-size:32px}
+    .wrap{padding:0 22px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#"><i></i>Destiny23334</a>
+    <nav><a class="on" href="#">Index</a><a href="#">About</a><a href="https://github.com/destiny23334" target="_blank" rel="noopener">GitHub</a></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Design<br><span class="thin">in the</span><br>details.</h1>
+        <p>前端工程师。写技术实践、阅读笔记和不成熟的思考；相信好的体验藏在细节里。</p>
+      </div>
+      <div class="hero-meta">
+        <div><span>Based</span><span>China</span></div>
+        <div><span>Focus</span><span>Web / Interface</span></div>
+        <div><span>Posts</span><span>03</span></div>
+        <div><span>Status</span><span>Writing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bar">
+    <span class="mono">Writing</span>
+    <div class="filters" id="filters"></div>
+  </div>
+
+  <div id="posts">
+    <a class="row" href="#" data-tags="技术 GitHub">
+      <span class="n">01</span><span class="y">2026.11.20</span>
+      <div><h2>用 GitHub Pages 免费托管自己的站点</h2><p class="d">从零开始把一个静态站点挂到 GitHub Pages 上：仓库命名、分支选择、自定义域名，以及几个容易踩的小坑。</p></div>
+      <div class="tg"><span>技术</span><span>GitHub</span></div><span class="arw">→</span>
+    </a>
+    <a class="row" href="#" data-tags="前端 CSS">
+      <span class="n">02</span><span class="y">2026.11.12</span>
+      <div><h2>Flexbox 与 Grid，什么时候用哪个</h2><p class="d">两套布局方案并不是替代关系。用一维排布和二维网格的直觉去选，比记住一堆属性更有用。</p></div>
+      <div class="tg"><span>前端</span><span>CSS</span></div><span class="arw">→</span>
+    </a>
+    <a class="row" href="#" data-tags="生活 阅读">
+      <span class="n">03</span><span class="y">2026.10.28</span>
+      <div><h2>最近读完的几本书</h2><p class="d">一个不追求数量的阅读记录：三本值得反复翻的书，以及它们各自改变了我哪一点做事方式。</p></div>
+      <div class="tg"><span>生活</span><span>阅读</span></div><span class="arw">→</span>
+    </a>
+  </div>
+
+  <section class="sample">
+    <div class="head"><span class="mono">Article typography</span><span class="mono">Preview</span></div>
+    <article class="article">
+      <h1>用 GitHub Pages 免费托管自己的站点</h1>
+      <div class="meta"><span>2026.11.20</span><span>技术</span><span>8 MIN</span></div>
+      <div class="prose">
+        <p>GitHub Pages 是 GitHub 自带的静态站点托管服务。把一个仓库推上去，它就会把里面的 HTML 当成网站对外提供访问——免费、支持 HTTPS，也不需要服务器。</p>
+        <h2>两种仓库，两种地址</h2>
+        <p>用户站点要求仓库名是 <code>用户名.github.io</code>，访问裸域名；其他仓库名则是项目站点，地址后面多一段路径。</p>
+        <blockquote>静态托管意味着没有服务端逻辑。需要接口、表单提交、评论时，接第三方服务或者换个部署方式。</blockquote>
+        <pre><code>git init
+git add .
+git commit -m "init blog"
+git push -u origin main</code></pre>
+      </div>
+    </article>
+  </section>
+
+  <footer><span>© 2026 Destiny23334</span><span>Swiss preview</span></footer>
+</div>
+
+<script>
+  (function(){
+    var posts=[].slice.call(document.querySelectorAll('.row'));
+    var tags=['全部'];posts.forEach(function(p){p.dataset.tags.split(' ').forEach(function(t){if(tags.indexOf(t)<0)tags.push(t)})});
+    var box=document.getElementById('filters');
+    tags.forEach(function(t){
+      var b=document.createElement('button');b.textContent=t;if(t==='全部')b.className='active';
+      b.onclick=function(){
+        [].forEach.call(box.children,function(x){x.className=x.textContent===t?'active':''});
+        posts.forEach(function(p){p.style.display=(t==='全部'||p.dataset.tags.indexOf(t)>-1)?'grid':'none'});
+      };
+      box.appendChild(b);
+    });
+  })();
+</script>
+</body>
+</html>
