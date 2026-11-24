@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flexbox 与 Grid，什么时候用哪个 · Destiny23334</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="../">Destiny23334</a>
+        <nav class="nav">
+          <a href="../">首页</a>
+          <a href="../about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <article class="article">
+        <div class="article-head">
+          <h1>Flexbox 与 Grid，什么时候用哪个</h1>
+          <div class="article-meta">
+            <time>2026.11.12</time>
+            <span class="tag">前端</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="prose">
+          <p>
+            这两个属性我一开始是混着用的，直到把「一维」和「二维」这个区别想清楚，选择才不再犹豫。
+          </p>
+
+          <h2>一句话版本</h2>
+          <ul>
+            <li><strong>Flexbox</strong>：沿一条轴排布，处理「一行里怎么分空间」。</li>
+            <li><strong>Grid</strong>：同时控制行和列，处理「一块区域怎么切格子」。</li>
+          </ul>
+
+          <h2>Flex 更顺手的场景</h2>
+          <p>
+            导航栏、按钮组、图标加文字、卡片底部的操作区。这些地方的共同点是：元素数量不定，但都在同一行（或同一列）里，只需要分配剩余空间和对齐。
+          </p>
+          <pre><code>.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.toolbar .spacer {
+  margin-left: auto;
+}</code></pre>
+          <p>
+            最后一段 <code>margin-left: auto</code> 是很实用的技巧：把某个元素推到行尾，不用额外包裹容器。
+          </p>
+
+          <h2>Grid 更顺手的场景</h2>
+          <p>
+            整页布局、卡片墙、表单两列对齐。只要你有「列」的概念，并且希望不同行之间的列宽度一致，就该用 Grid。
+          </p>
+          <pre><code>.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}</code></pre>
+          <p>
+            这一行几乎是我现在写响应式卡片列表的默认方案：列数随容器宽度自动增减，不需要任何媒体查询。
+          </p>
+
+          <h2>混用很正常</h2>
+          <p>
+            外层用 Grid 划分页面区域，每个区域内部用 Flex 排列内容，是最常见的组合。不必强求「只用一种」。
+          </p>
+
+          <blockquote>
+            判断标准不是哪个更新，而是：我在对齐一条线上的东西，还是在切一块区域。
+          </blockquote>
+        </div>
+
+        <a class="back-link" href="../">← 返回首页</a>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© 2026 Destiny23334</span>
+        <span>Powered by GitHub Pages</span>
+      </div>
+    </footer>
+  </body>
+</html>

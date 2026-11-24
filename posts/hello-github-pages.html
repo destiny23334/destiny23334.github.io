@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>用 GitHub Pages 免费托管自己的站点 · Destiny23334</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="../">Destiny23334</a>
+        <nav class="nav">
+          <a href="../">首页</a>
+          <a href="../about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <article class="article">
+        <div class="article-head">
+          <h1>用 GitHub Pages 免费托管自己的站点</h1>
+          <div class="article-meta">
+            <time>2026.11.20</time>
+            <span class="tag">技术</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </div>
+
+        <div class="prose">
+          <p>
+            GitHub Pages 是 GitHub 自带的静态站点托管服务：把一个仓库推上去，它就会把里面的 HTML 当成网站对外提供访问，免费、支持 HTTPS，也不需要服务器。
+          </p>
+
+          <h2>两种仓库，两种地址</h2>
+          <p>取决于仓库名，Pages 给你的域名不一样：</p>
+          <ul>
+            <li>
+              <strong>用户站点</strong>：仓库名必须是
+              <code>用户名.github.io</code>，访问地址是
+              <code>https://用户名.github.io</code>。
+            </li>
+            <li>
+              <strong>项目站点</strong>：任意仓库名，访问地址是
+              <code>https://用户名.github.io/仓库名</code>。
+            </li>
+          </ul>
+          <p>
+            想当个人主页用，直接建用户站点最省事。已经有同名仓库的话，它会变成主页，需要注意别覆盖。
+          </p>
+
+          <h2>开启 Pages</h2>
+          <ol>
+            <li>仓库 Settings → Pages。</li>
+            <li>
+              Source 选 <strong>Deploy from a branch</strong>，分支选
+              <code>main</code>，目录选 <code>/ (root)</code>。
+            </li>
+            <li>保存，等一两分钟，页面顶部会出现访问地址。</li>
+          </ol>
+          <p>
+            首次部署通常要等半分钟左右，之后每次 <code>git push</code> 都会自动重新发布。改动没生效时先看仓库的 Actions 或 Environments 里最新的部署记录。
+          </p>
+
+          <h2>几个容易踩的坑</h2>
+          <ul>
+            <li>
+              <strong>路径大小写</strong>：GitHub 的服务器区分大小写，本地 Windows 不区分。本地能打开的
+              <code>Assets/CSS/style.css</code>，线上可能 404。
+            </li>
+            <li>
+              <strong>以路径访问</strong>：首页必须是仓库根目录的
+              <code>index.html</code>，否则访问域名会看到 404。
+            </li>
+            <li>
+              <strong>下划线开头的文件</strong>：默认会走 Jekyll 处理，可能被忽略。放进一个空的
+              <code>.nojekyll</code> 文件即可关掉。
+            </li>
+          </ul>
+
+          <h2>绑定自己的域名</h2>
+          <p>
+            在 Pages 设置里填 Custom domain，然后到域名服务商加一条 CNAME 记录指向
+            <code>用户名.github.io</code>。开启 HTTPS 后等证书签发完成就行。
+          </p>
+
+          <blockquote>
+            静态托管意味着没有服务端逻辑。需要接口、表单提交、评论时，接第三方服务或者换个部署方式。
+          </blockquote>
+        </div>
+
+        <a class="back-link" href="../">← 返回首页</a>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© 2026 Destiny23334</span>
+        <span>Powered by GitHub Pages</span>
+      </div>
+    </footer>
+  </body>
+</html>
